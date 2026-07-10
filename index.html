@@ -7,6 +7,8 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script>
         function experience(){
             return{
@@ -39,17 +41,19 @@
             return{
                 hard:{
                     framework:[
-                        {name:'Vue3',img:null, lvl:'Intermediate', start:'2025', type:'Framework'},
-                        {name:'Laravel',img:null, lvl:'Beginner', start:'2025', type:'Framework'},
-                        {name:'Tailwindcss',img:null, lvl:'beginner', start:'2025', type:'Library'},
-                        {name:'AlpineJS',img:null, lvl:'Beginner', start:'2025', type:'Framework'},
+                        {name:'Vue3',img:'img/logos/Vue.png', lvl:'Intermediate', start:'2025', type:'Framework'},
+                        {name:'Laravel',img:'img/logos/Laravel.jpeg', lvl:'Beginner', start:'2025', type:'Framework'},
+                        {name:'Tailwindcss',img:'img/logos/tailwind-css.png', lvl:'beginner', start:'2025', type:'Library'},
+                        {name:'AlpineJS',img:'img/logos/Alpine-Js.jpg', lvl:'Beginner', start:'2025', type:'Framework'},
                     ],
                     lan:[
-                        {name:'Javascript',img:null, lvl:'Intermediate', start:'2024', type:'Programming Language'},
-                        {name:'C#',img:null, lvl:'Beginner', start:'2025', type:'Programming Language'},
-                        {name:'PHP',img:null, lvl:'Intermediate', start:'2024', type:'Programming Language'},
-                        {name:'HTML 5',img:null, lvl:'Intermediate', start:'2023', type:'Framework'},
-                        {name:'CSS',img:null, lvl:'Intermediate', start:'2023', type:'Styling'},
+                        {name:'Javascript',img:'img/logos/JS.png', lvl:'Intermediate', start:'2024', type:'Programming Language'},
+                        {name:'C#',img:'img/logos/CS.png', lvl:'Beginner', start:'2025', type:'Programming Language'},
+                        {name:'PHP',img:'img/logos/PhP.png', lvl:'Intermediate', start:'2024', type:'Programming Language'},
+                        {name:'HTML 5',img:'img/logos/HTML-5.png', lvl:'Intermediate', start:'2023', type:'Framework'},
+                        {name:'CSS',img:'img/logos/CSS.png', lvl:'Intermediate', start:'2023', type:'Styling'},
+                        {name:'SQL',img:'img/logos/SQL.jpg', lvl:'Intermediate', start:'2022', type:'Structured Query'},
+                        {name:'Python',img:'img/logos/Python.png', lvl:'Beginner', start:'2023', type:'Programming Language'},
                     ]
                 },
                 soft:[
@@ -75,13 +79,18 @@
     <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
         <div class="max-w-7xl mx-auto flex justify-between items-center px-8 py-4">
             <a href="#introductie" class="text-2xl font-bold text-blue-600">Robbe van Kooten</a>
-            <nav class="hidden md:flex gap-8 font-medium">
-                <a href="#about-me" class="hover:text-blue-600 transition">Over Mij</a>
-                <a href="#skills" class="hover:text-blue-600 transition">Mijn skills</a>
-                <a href="#projecten" class="hover:text-blue-600 transition">Projecten</a>
-                <a href="#experiences" class="hover:text-blue-600 transition">Ervaringen</a>
-            </nav>
-
+            <div class="flex items-center gap-6">
+                <nav class="hidden md:flex gap-8 font-medium">
+                    <a href="#about-me" class="hover:text-blue-600 transition">Over Mij</a>
+                    <a href="#skills" class="hover:text-blue-600 transition">Mijn skills</a>
+                    <a href="#projecten" class="hover:text-blue-600 transition">Projecten</a>
+                    <a href="#experiences" class="hover:text-blue-600 transition">Ervaringen</a>
+                </nav>
+                <div>
+                    <a class="bg-white/80 border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-6 py-3 rounded-xl transition" href="img/Robbe_van_Kooten_CV.pdf" download=>Download mijn CV</a>
+                </div>
+            </div>
+        
         </div>
     </header>
 
@@ -110,13 +119,302 @@
             
         </section>
 
-        <!-- about me -->
         <section id="about-me" class="max-w-7xl mx-auto px-8 py-16">
             <h2 class="text-3xl font-bold mb-6">Over mij</h2>
             <p class="text-gray-700 leading-8">ik ben Robbe van Kooten, 23 jaar oud, en pas geleden afgestudeerd als Software Developer op het MBO college Almere Buiten. Hiervoor heb ik op het ROC in Lelystad de MBO opleiding Expert IT Systems & Devices (niveau 4) gedaan. Hierbij heb ik geleerd over het beheren van systemen en netwerken, cybersecurity en lichtelijke python coding</p>
         </section>
 
-        <!-- projecten -->
+        <section
+            id="skills"
+            x-data="{ tab: 'technical_skills', frameworkPage: 0, frameworkPerPage: 3, languagePage: 0, languagePerPage: 3, ...skills() }"
+            class="max-w-6xl mx-auto py-20 px-6">
+
+            <h2 class="text-4xl font-bold text-center mb-10">
+                Mijn skills
+            </h2>
+
+            <div class="flex justify-center">
+
+                <button
+                    @click="tab = 'technical_skills'"
+                    :class="tab === 'technical_skills'
+                        ? 'bg-gray-100 border-b-gray-100 z-10'
+                        : 'bg-gray-200'"
+                    class="px-8 py-3 font-semibold border-x-2 border-t-2 border-gray-300 rounded-tl-xl -mb-[2px]">
+                    Technical Skills
+                </button>
+
+                <button
+                    @click="tab = 'soft_skills'"
+                    :class="tab === 'soft_skills'
+                        ? 'bg-gray-100 border-b-gray-100 z-10'
+                        : 'bg-gray-200 '"
+                    class="px-8 py-3 font-semibold border-r-2 border-t-2 border-gray-300 rounded-tr-xl -mb-[2px]">
+                    Soft Skills
+                </button>
+
+            </div>
+
+            <div x-show="tab === 'technical_skills'" x-transition class="border-2 border-gray-300 rounded-3xl relative p-8">
+
+                <h3 class="text-xl font-bold mb-4 text-center">
+                    Frameworks
+                </h3>
+
+                
+
+                <div class="grid md:grid-cols-3 gap-6 mb-10">
+
+                    <template 
+                        x-for="framework in hard.framework.slice(frameworkPage * frameworkPerPage, (frameworkPage + 1) * frameworkPerPage)"
+                        :key="framework.name"
+                    >
+
+                        <div class="bg-white rounded-xl shadow-lg p-5 hover:shadow-xl transition">
+
+                            <div class="flex items-center gap-4">
+
+                                <img
+                                    :src="framework.img"
+                                    :alt="framework.name"
+                                    class="w-12 h-12 object-contain">
+
+                                <div>
+                                    <h4
+                                        class="font-bold text-lg"
+                                        x-text="framework.name">
+                                    </h4>
+
+                                    <p
+                                        class="text-sm text-gray-500"
+                                        x-text="framework.type">
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <div class="mt-5 space-y-2">
+
+                                <div class="flex justify-between">
+                                    <span class="text-gray-500">Level</span>
+                                    <span x-text="framework.lvl"></span>
+                                </div>
+
+                                <div class="flex justify-between">
+                                    <span class="text-gray-500">Begonnen in</span>
+                                    <span x-text="framework.start"></span>
+                                </div>
+
+                            </div>
+
+                    </template>
+
+                   
+
+
+                </div>
+                <div class="flex justify-center gap-3 mb-10">
+                    <button
+                        @click="frameworkPage = frameworkPage === 0 
+                            ? Math.ceil(hard.framework.length / frameworkPerPage) - 1 
+                            : frameworkPage - 1"
+                        class="text-2xl px-2 hover:text-blue-600">
+                        ←
+                    </button>
+                    <template x-for="(_, index) in Math.ceil(hard.framework.length / frameworkPerPage)">
+
+                        <button
+                            @click="frameworkPage = index"
+                            class="w-3 h-3 rounded-full"
+                            :class="
+                                frameworkPage === index 
+                                ? 'bg-blue-600'
+                                : 'bg-gray-300'
+                            ">
+                        </button>
+
+                    </template>
+
+                    <button
+                        @click="frameworkPage = frameworkPage === Math.ceil(hard.framework.length / frameworkPerPage) - 1 
+                            ? 0 
+                            : frameworkPage + 1"
+                        class="text-2xl px-2 hover:text-blue-600">
+                        →
+                    </button>
+
+                </div>
+
+                
+
+                <h3 class="text-xl font-bold mb-4 text-center">
+                    Programmeertalen
+                </h3>
+
+                <div class="grid md:grid-cols-3 gap-6 mb-10">
+
+                    <template 
+                        x-for="language in hard.lan.slice(languagePage * languagePerPage, (languagePage + 1) * languagePerPage)"
+                        :key="language.name"
+                    >
+
+                        <div class="bg-white rounded-xl shadow-lg p-5 hover:shadow-xl transition">
+
+                            <div class="flex items-center gap-4">
+
+                                <img
+                                    :src="language.img"
+                                    :alt="language.name"
+                                    class="w-12 h-12 object-contain">
+
+                                <div>
+                                    <h4
+                                        class="font-bold text-lg"
+                                        x-text="language.name">
+                                    </h4>
+
+                                    <p
+                                        class="text-sm text-gray-500"
+                                        x-text="language.type">
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <div class="mt-5 space-y-2">
+
+                                <div class="flex justify-between">
+                                    <span class="text-gray-500">Level:</span>
+                                    <span x-text="language.lvl"></span>
+                                </div>
+
+                                <div class="flex justify-between">
+                                    <span class="text-gray-500">Begonnen in:</span>
+                                    <span x-text="language.start"></span>
+                                </div>
+
+                            </div>
+
+
+                    </template>
+
+                </div>
+                <div class="flex justify-center gap-3">
+
+                    <button
+                        @click="languagePage = languagePage === 0 
+                            ? Math.ceil(hard.lan.length / languagePerPage) - 1 
+                            : languagePage - 1"
+                        class="text-2xl px-2 hover:text-blue-600">
+                        ←
+                    </button>
+
+                    <template x-for="(_, index) in Math.ceil(hard.lan.length / languagePerPage)">
+
+                        <button
+                            @click="languagePage = index"
+                            class="w-3 h-3 rounded-full"
+                            :class="
+                                languagePage === index 
+                                ? 'bg-blue-600'
+                                : 'bg-gray-300'
+                            ">
+                        </button>
+
+                    </template>
+
+                    <button
+                        @click="languagePage = languagePage === Math.ceil(hard.lan.length / languagePerPage) - 1 
+                            ? 0 
+                            : languagePage + 1"
+                        class="text-2xl px-2 hover:text-blue-600">
+                        →
+                    </button>
+
+                </div>
+
+            </div>
+            <div
+                x-show="tab === 'soft_skills'"
+                x-transition
+                class="grid md:grid-cols-3 gap-6 border-2 border-gray-300 rounded-3xl relative p-8">
+
+                <template x-for="skill in soft" :key="skill.name">
+
+                    <div class="bg-white rounded-xl shadow overflow-hidden">
+
+                        <img
+                            :src="skill.img"
+                            class="w-32 h-auto object-cover">
+
+                        <div class="p-4">
+
+                            <h3
+                                class="font-bold text-lg text-center"
+                                x-text="skill.name">
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+                </template>
+
+            </div>
+
+        </section>
+
+        <section id="experiences" class="max-w-[75%] mx-auto py-20 px-6">
+            <div x-data="experience()" class="grid md:grid-cols-2 gap-10">
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 text-center">Opleidingen</h2>
+                    <template x-for="e in education" :key="e.id">
+                        <div class="mb-6 p-4 shadow-lg rounded-lg border hover:bg-gray-100 cursor-pointer">
+
+                            <h3 class="font-bold text-lg"
+                                x-text="e.name">
+                            </h3>
+
+                            <p x-text="e.location"></p>
+
+                            <p class="text-gray-500">
+                                <span x-text="e.start_period"></span>
+                                -
+                                <span x-text="e.end_period"></span>
+                            </p>
+
+                            <p x-text="e.description"></p>
+
+                        </div>
+
+                    </template>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 text-center">Werkervaring</h2>
+                    <template x-for="j in jobs" :key="j.id">
+                        <div class="mb-6 p-4 shadow-lg rounded-lg border hover:bg-gray-100 cursor-pointer">
+
+                            <h3 class="font-bold text-lg"
+                                x-text="j.function_name">
+                            </h3>
+                            <p x-text="j.specialty" class="text-gray-500 text-md"></p>
+
+                            <p x-text="j.company_name"></p>
+
+                            <p class="text-gray-500">
+
+                                <span x-text="j.start_period"></span>
+                                -
+                                <span x-text="j.end_period"></span>
+
+                            </p>
+
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </section>
+
         <section id="projecten" class="max-w-6xl mx-auto py-20 px-6">
             <h2 class="text-4xl font-bold text-center mb-10">Mijn projecten</h2>
             
@@ -125,7 +423,7 @@
 
                     <div 
                         
-                        class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-105 flex flex-col"
+                        class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-105 flex flex-col max-h-2xl"
                     >
                         <img 
                             :src="p.img"
@@ -237,255 +535,23 @@
 
         </section>
 
-        <!-- tabmenu 2 -->
-        <section
-            id="skills"
-            x-data="{ tab: 'technical_skills', frameworkPage: 0, frameworkPerPage: 3, languagePage: 0, languagePerPage: 3, ...skills() }"
-            class="max-w-6xl mx-auto py-20 px-6">
-
-            <h2 class="text-4xl font-bold text-center mb-10">
-                Mijn skills
-            </h2>
-
-            <div class="flex justify-center">
-
-                <button
-                    @click="tab = 'technical_skills'"
-                    :class="tab === 'technical_skills'
-                        ? 'bg-gray-100 border-b-gray-100 z-10'
-                        : 'bg-gray-200'"
-                    class="px-8 py-3 font-semibold border-x-2 border-t-2 border-gray-300 rounded-tl-xl -mb-[2px]">
-                    Technical Skills
-                </button>
-
-                <button
-                    @click="tab = 'soft_skills'"
-                    :class="tab === 'soft_skills'
-                        ? 'bg-gray-100 border-b-gray-100 z-10'
-                        : 'bg-gray-200 '"
-                    class="px-8 py-3 font-semibold border-r-2 border-t-2 border-gray-300 rounded-tr-xl -mb-[2px]">
-                    Soft Skills
-                </button>
-
-            </div>
-
-            <!-- Technical Skills -->
-            <div x-show="tab === 'technical_skills'" x-transition class="border-2 border-gray-300 rounded-3xl relative p-8">
-
-                <h3 class="text-xl font-bold mb-4 text-center">
-                    Frameworks
-                </h3>
-
-                
-
-                <div class="grid md:grid-cols-3 gap-6 mb-10">
-
-                    <template 
-                        x-for="framework in hard.framework.slice(frameworkPage * frameworkPerPage, (frameworkPage + 1) * frameworkPerPage)"
-                        :key="framework.name"
-                    >
-
-                        <div class="bg-white rounded-xl shadow p-5">
-
-                            <h4
-                                class="font-bold text-lg"
-                                x-text="framework.name">
-                            </h4>
-
-                            <p class="text-gray-500" x-text="framework.type"></p>
-
-                            <p x-text="'Level: ' + framework.lvl"></p>
-
-                        </div>
-
-                    </template>
-
-                   
-
-
-                </div>
-                <div class="flex justify-center gap-3 mb-10">
-                    <button
-                        @click="frameworkPage = frameworkPage === 0 
-                            ? Math.ceil(hard.framework.length / frameworkPerPage) - 1 
-                            : frameworkPage - 1"
-                        class="text-2xl px-2 hover:text-blue-600">
-                        ←
-                    </button>
-                    <template x-for="(_, index) in Math.ceil(hard.framework.length / frameworkPerPage)">
-
-                        <button
-                            @click="frameworkPage = index"
-                            class="w-3 h-3 rounded-full"
-                            :class="
-                                frameworkPage === index 
-                                ? 'bg-blue-600'
-                                : 'bg-gray-300'
-                            ">
-                        </button>
-
-                    </template>
-
-                    <button
-                        @click="frameworkPage = frameworkPage === Math.ceil(hard.framework.length / frameworkPerPage) - 1 
-                            ? 0 
-                            : frameworkPage + 1"
-                        class="text-2xl px-2 hover:text-blue-600">
-                        →
-                    </button>
-
-                </div>
-
-                
-
-                <h3 class="text-xl font-bold mb-4 text-center">
-                    Programmeertalen
-                </h3>
-
-                <div class="grid md:grid-cols-3 gap-6 mb-10">
-
-                    <template 
-                        x-for="language in hard.lan.slice(languagePage * languagePerPage, (languagePage + 1) * languagePerPage)"
-                        :key="language.name"
-                    >
-
-                        <div class="bg-white rounded-xl shadow p-5">
-
-                            <h4
-                                class="font-bold text-lg"
-                                x-text="language.name">
-                            </h4>
-
-                            <p class="text-gray-500" x-text="language.type"></p>
-
-                            <p x-text="'Level: ' + language.lvl"></p>
-
-                        </div>
-
-                    </template>
-
-                </div>
-                <div class="flex justify-center gap-3">
-
-                    <button
-                        @click="languagePage = languagePage === 0 
-                            ? Math.ceil(hard.lan.length / languagePerPage) - 1 
-                            : languagePage - 1"
-                        class="text-2xl px-2 hover:text-blue-600">
-                        ←
-                    </button>
-
-                    <template x-for="(_, index) in Math.ceil(hard.lan.length / languagePerPage)">
-
-                        <button
-                            @click="languagePage = index"
-                            class="w-3 h-3 rounded-full"
-                            :class="
-                                languagePage === index 
-                                ? 'bg-blue-600'
-                                : 'bg-gray-300'
-                            ">
-                        </button>
-
-                    </template>
-
-                    <button
-                        @click="languagePage = languagePage === Math.ceil(hard.lan.length / languagePerPage) - 1 
-                            ? 0 
-                            : languagePage + 1"
-                        class="text-2xl px-2 hover:text-blue-600">
-                        →
-                    </button>
-
-                </div>
-
-            </div>
-            <div
-                x-show="tab === 'soft_skills'"
-                x-transition
-                class="grid md:grid-cols-3 gap-6 border-2 border-gray-300 rounded-3xl relative p-8">
-
-                <template x-for="skill in soft" :key="skill.name">
-
-                    <div class="bg-white rounded-xl shadow overflow-hidden">
-
-                        <img
-                            :src="skill.img"
-                            class="w-32 h-auto object-cover">
-
-                        <div class="p-4">
-
-                            <h3
-                                class="font-bold text-lg text-center"
-                                x-text="skill.name">
-                            </h3>
-
-                        </div>
-
-                    </div>
-
-                </template>
+        <section id="contact">
+            <div class="text-center text-gray-500 text-sm font-mono shadow-[0_-4px_10px_rgba(0,0,0,0.15)]">>
 
             </div>
 
         </section>
 
-        <section id="experiences" class="max-w-[75%] mx-auto py-20 px-6">
-            <div x-data="experience()" class="grid md:grid-cols-2 gap-10">
-                <div>
-                    <h2 class="text-2xl font-bold mb-4 text-center">Opleidingen</h2>
-                    <template x-for="e in education" :key="e.id">
-                        <div class="mb-6 p-4 rounded-lg border hover:bg-gray-100 cursor-pointer">
-
-                            <h3 class="font-bold text-lg"
-                                x-text="e.name">
-                            </h3>
-
-                            <p x-text="e.location"></p>
-
-                            <p class="text-gray-500">
-                                <span x-text="e.start_period"></span>
-                                -
-                                <span x-text="e.end_period"></span>
-                            </p>
-
-                            <p x-text="e.description"></p>
-
-                        </div>
-
-                    </template>
-                </div>
-                <div>
-                    <h2 class="text-2xl font-bold mb-4 text-center">Werkervaring</h2>
-                    <template x-for="j in jobs" :key="j.id">
-                        <div class="mb-6 p-4 rounded-lg border hover:bg-gray-100 cursor-pointer">
-
-                            <h3 class="font-bold text-lg"
-                                x-text="j.function_name">
-                            </h3>
-                            <p x-text="j.specialty" class="text-gray-500 text-md"></p>
-
-                            <p x-text="j.company_name"></p>
-
-                            <p class="text-gray-500">
-
-                                <span x-text="j.start_period"></span>
-                                -
-                                <span x-text="j.end_period"></span>
-
-                            </p>
-
-                        </div>
-                    </template>
-                </div>
-            </div>
-        </section>
+        
 
     </main>
 
-    <footer>
-
-
+    <footer class="
+    py-10 text-center text-gray-500 text-sm font-mono shadow-[0_-4px_10px_rgba(0,0,0,0.15)]">
+        <a href="https://www.linkedin.com/in/robbe-van-kooten-214672209/" class="text-black text-3xl hover:text-gray-600 transition  drop-shadow-[0_0_10px_rgba(59,130,246,0.8)]"> <i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://github.com/RobbeGT3" class="text-black text-3xl hover:text-gray-600 transition  drop-shadow-[0_0_10px_rgba(59,130,246,0.8)]"> <i class="fa-brands fa-github"></i></a>
+        <!-- <a href="https://www.reddit.com/user/PeachZealousideal497/" class="text-blue-400 text-3xl hover:text-blue-300 transition  drop-shadow-[0_0_10px_rgba(59,130,246,0.8)]"> <i class="fa-brands fa-square-reddit"></i></a> -->
+        <p>© 2026 Robbe van Kooten</p>
     </footer>
 </body>
 </html>
