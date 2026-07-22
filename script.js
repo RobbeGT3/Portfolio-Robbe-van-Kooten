@@ -16,10 +16,10 @@ function experience(){
 function projects(){
     return{
         projecten:[
-                    {id:1, project_name:"Vue 3 Dashboard",link:null, img:"img/projects/Dashboard.png", description:"Dit was project die ik had gemaaktop stage. Een dashboard voor het controleren en aanpassen van onderzoeksgegevens en interviews op schiphol", used_languages:['Javascript', 'PHP', 'SQL'], used_frameworks:['Vue3']},
-                    {id:2, project_name:"KanBanboard",link:'https://github.com/RobbeGT3/KanBanBoard', img:"img/projects/kanbanboard.png", description:"KanBanBoard applicatie die ik zelf heb gemaakt", used_languages:['Javascript','HTML'], used_frameworks:[]},
-                    {id:3, project_name:"Fullstack",link:'https://github.com/RobbeGT3/FullStack', img:"img/projects/fullstack.png", description:"Standaard informatie beheer applicatie. Hierin kunnen gebruikers worden aangepast, aangemaakt en verwijderd worden.", used_languages:['Javascript', 'PHP','HTML', 'SQL'], used_frameworks:[]},
-                    {id:4, project_name:"Voedselbank Examenproject",link:'https://github.com/RobbeGT3/Examenopdracht', img:"img/projects/voedselbank examenproject.png", description:"Een Multipurpose dashboard voor mijn eindexamen. Hierin kan voorraad, klantenen useraccounts beheerd worden, en kunnen voedselpakketten aangemaakt worden voor uitgave aan actieve klanten.", used_languages:['Javascript', 'PHP','HTML', 'SQL'], used_frameworks:[]}
+            {id:1, project_name:"Vue 3 Dashboard",link:null, img:"img/projects/Dashboard.png", description:"Dit was project die ik had gemaaktop stage. Een dashboard voor het controleren en aanpassen van onderzoeksgegevens en interviews op schiphol", challenges: [], used_languages:['Javascript', 'PHP', 'SQL'], used_frameworks:['Vue3']},
+            {id:2, project_name:"KanBanboard",link:'https://github.com/RobbeGT3/KanBanBoard', img:"img/projects/kanbanboard.png", description:"KanBanBoard applicatie die ik zelf heb gemaakt", challenges: [], used_languages:['Javascript','HTML'], used_frameworks:[]},
+            {id:3, project_name:"Fullstack",link:'https://github.com/RobbeGT3/FullStack', img:"img/projects/fullstack.png", description:"Standaard informatie beheer applicatie. Hierin kunnen gebruikers worden aangepast, aangemaakt en verwijderd worden.", challenges: [], used_languages:['Javascript', 'PHP','HTML', 'SQL'], used_frameworks:[]},
+            {id:4, project_name:"Voedselbank Examenproject",link:'https://github.com/RobbeGT3/Examenopdracht', img:"img/projects/voedselbank examenproject.png", description:"Een Multipurpose dashboard voor mijn eindexamen. Hierin kan voorraad, klantenen useraccounts beheerd worden, en kunnen voedselpakketten aangemaakt worden voor uitgave aan actieve klanten.", challenges: [], used_languages:['Javascript', 'PHP','HTML', 'SQL'], used_frameworks:[]}
         ]
     }
 
