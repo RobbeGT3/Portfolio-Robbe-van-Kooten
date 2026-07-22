@@ -101,7 +101,6 @@
                     x-transition
                     class="p-2 mt-3 border-2 border-gray-300 rounded-3xl">
 
-                    <!-- <span>Fast learner &nbsp;·&nbsp; Self-directed &nbsp;·&nbsp; Client communication &nbsp;·&nbsp; Team collaboration &nbsp;·&nbsp; Problem solving &nbsp;·&nbsp;</span> -->
                     <template x-for="(soft, index) in softs" :key="soft">
                         <span>
                             <span x-text="soft"></span>
@@ -380,7 +379,6 @@
         </section>
 
         <section id="projecten" class="max-w-6xl mx-auto py-20 px-6" >
-            <!-- <h2 class="text-4xl font-bold text-center mb-10">Mijn projecten</h2> -->
              <h2 class="text-4xl font-bold text-center mb-10">
                 Mijn projecten
             </h2>
@@ -482,7 +480,7 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <template x-if="p.link">
+                                    <!-- <template x-if="p.link">
 
                                         <a 
                                             :href="p.link"
@@ -498,14 +496,14 @@
                                         <span class="text-gray-400 italic">
                                             
                                         </span>
-                                    </template>
+                                    </template> -->
 
-                                    <!-- <button
+                                    <button
                                         @click="selectedProject = p"
                                         class="text-blue-600 hover:text-blue-800 font-semibold"
                                     >
                                         Meer informatie →
-                                    </button> -->
+                                    </button>
                                 </div>
                             </div>
                         </div>
