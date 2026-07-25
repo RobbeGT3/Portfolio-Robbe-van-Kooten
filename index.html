@@ -201,7 +201,7 @@
                     class="w-full flex justify-between items-center py-5">
 
                     <span class="font-bold text-xl">
-                        ▷ Frameworks
+                        ▷ Frameworks / Libraries / Systems
                     </span>
 
                     <span x-text="open ? '[-]' : '[+]'"></span>
@@ -246,12 +246,12 @@
                                 <div class="mt-5 space-y-2">
 
                                     <div class="flex justify-between">
-                                        <span class="text-gray-500">Level</span>
+                                        <span class="text-gray-500">Level:</span>
                                         <span x-text="framework.lvl"></span>
                                     </div>
 
                                     <div class="flex justify-between">
-                                        <span class="text-gray-500">Begonnen in</span>
+                                        <span class="text-gray-500">Begonnen in:</span>
                                         <span x-text="framework.start"></span>
                                     </div>
 
@@ -383,7 +383,7 @@
                 Mijn projecten
             </h2>
 
-            <div x-data="{ ...projects(), selectedProject: null }">
+            <div x-data="{ ...projects(), selectedProject: null }"  x-effect="document.body.style.overflow = selectedProject ? 'hidden' : ''">
 
                 <div class="grid md:grid-cols-3 gap-10">
                     <template x-for="p in projecten" :key="p.id">
@@ -392,11 +392,14 @@
                             
                             class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-105 flex flex-col max-h-2xl"
                         >
-                            <img 
+                            <div class="flex justify-center ">
+                                <img 
                                 :src="p.img"
                                 :alt="p.project_name"
-                                class="w-full h-48 object-cover mt-4 "
+                                class="w-[98%] h-auto object-cover mt-2 shadow-lg rounded-lg"
                             >
+                                
+                            </div>
                             <div class="p-5 flex flex-col flex-1">
                                 <h3 
                                     class="text-xl font-bold mb-3"
@@ -450,7 +453,7 @@
 
                                     <div class="mb-4">
                                         <h4 class="font-semibold text-sm mb-2">
-                                            Frameworks
+                                            Frameworks / Libraries
                                         </h4>
 
                                         <template x-if="p.used_frameworks.length > 0">
@@ -480,24 +483,6 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <!-- <template x-if="p.link">
-
-                                        <a 
-                                            :href="p.link"
-                                            target="_blank"
-                                            class="inline-block mt-3 text-blue-600 hover:text-blue-800 font-semibold"
-                                        >
-                                            Bekijk project →
-                                        </a>
-
-                                    </template>
-                                    <template x-if="!p.link">
-
-                                        <span class="text-gray-400 italic">
-                                            
-                                        </span>
-                                    </template> -->
-
                                     <button
                                         @click="selectedProject = p"
                                         class="text-blue-600 hover:text-blue-800 font-semibold"
@@ -522,120 +507,117 @@
 
                     <div
                         @click.stop
-                        class="bg-white rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl"
+                        class="bg-white rounded-3xl w-full max-w-3xl max-h-[90vh] flex flex-col overflow-hidden shadow-2xl"
                     >
 
                         <!-- Header -->
-                        <!-- <div class="flex items-center justify-end p-6 border-b">
+                        <div class="bg-gray-200 grid grid-cols-[60px_1fr_60px] items-center shrink-0 p-6 border-b">
 
                             <button
                                 @click="selectedProject = null"
-                                class="text-2xl hover:text-red-500 transition"
+                                class="text-3xl hover:text-blue-600 transition"
                             >
-                                <i class="fa-solid fa-xmark"></i>
+                                <i class="fa-solid fa-arrow-left"></i>
                             </button>
-
-                        </div> -->
-                        <div class="grid grid-cols-[60px_1fr_60px] items-center p-6 border-b">
-                            <div></div>
                             <h2
-                                class="text-4xl font-bold mb-6"
+                                class="text-4xl text-center font-bold"
                                 x-text="selectedProject.project_name"
                             ></h2>
-                            <button
-                                @click="selectedProject = null"
-                                class="text-2xl hover:text-red-500 transition"
-                            >
-                                <i class="fa-solid fa-xmark"></i>
-                            </button>
 
                         </div>
 
-                        <!-- Afbeelding -->
-                        <img
-                            :src="selectedProject.img"
-                            :alt="selectedProject.project_name"
-                            class="flex items-center w-auto h-64 object-cover"
-                        >
+                        <div class="flex-1 overflow-y-auto ">
+                            <!-- Afbeelding -->
+                            <div class="flex justify-center mt-2">
+                                <img
+                                    :src="selectedProject.img"
+                                    :alt="selectedProject.project_name"
+                                    class="w-[95%] h-auto object-cover shadow-lg rounded-lg"
+                                >
+                            </div>
+                            <div class="p-8">
+                                <!-- Beschrijving -->
+                                <div class="mb-8">
 
-                        <div class="p-8">
+                                    <h3 class="text-xl font-bold mb-3">
+                                        Beschrijving
+                                    </h3>
 
-                            <!-- Titel -->
-                            <h2
-                                class="text-4xl font-bold mb-6"
-                                x-text="selectedProject.project_name"
-                            ></h2>
-
-                            <!-- Tools -->
-                            <div class="mb-5">
-
-                                <h3 class="font-semibold mb-2">
-                                    Used Languages & Frameworks
-                                </h3>
-
-                                <div class="flex flex-wrap gap-2">
-
-                                    <template
-                                        x-for="language in selectedProject.used_languages"
-                                        :key="language"
-                                    >
-
-                                        <span
-                                            class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium"
-                                            x-text="language"
-                                        ></span>
-
-                                    </template>
-
-                                    <template
-                                        x-for="framework in selectedProject.used_frameworks"
-                                        :key="framework"
-                                    >
-
-                                        <span
-                                            class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium"
-                                            x-text="framework"
-                                        ></span>
-
-                                    </template>
-
-                                    <template
-                                        x-if="selectedProject.used_languages.length === 0 && selectedProject.used_frameworks.length === 0"
-                                    >
-                                        <span class="text-gray-500 italic">
-                                            -
-                                        </span>
-                                    </template>
+                                    <p
+                                        class="text-gray-700 leading-8 whitespace-pre-line"
+                                        x-text="selectedProject.description"
+                                    ></p>
 
                                 </div>
+                                <div class="grid grid-cols-2 mb-5">
+                                    <div>
+                                        <h3 class="font-semibold text-center mb-2">
+                                            Used languages
+                                        </h3>
+                                        <div class="flex flex-wrap justify-center gap-2">
+                                            <template
+                                            x-for="language in selectedProject.used_languages"
+                                            :key="language"
+                                            >
 
+                                                <span
+                                                    class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium"
+                                                    x-text="language"
+                                                ></span>
+
+                                            </template>
+                                            <template
+                                                x-if="selectedProject.used_languages.length === 0"
+                                            >
+                                                <span class="text-gray-500 italic">
+                                                    -
+                                                </span>
+                                            </template>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-center mb-2">
+                                            Used frameworks, Libraries
+                                        </h3>
+                                        <div class="flex flex-wrap justify-center gap-2">
+                                            <template
+                                                x-for="framework in selectedProject.used_frameworks"
+                                                :key="framework"
+                                                >
+
+                                                    <span
+                                                        class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium"
+                                                        x-text="framework"
+                                                    ></span>
+
+                                            </template>
+                                            <template
+                                                x-if="selectedProject.used_frameworks.length === 0"
+                                            >
+                                                <span class="text-gray-500 italic">
+                                                    -
+                                                </span>
+                                            </template>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+
+                                
                             </div>
-
-                            <!-- Beschrijving -->
-                            <div class="mb-8">
-
-                                <h3 class="text-xl font-bold mb-3">
-                                    Beschrijving
-                                </h3>
-
-                                <p
-                                    class="text-gray-700 leading-8 whitespace-pre-line"
-                                    x-text="selectedProject.description"
-                                ></p>
-
-                            </div>
-
+                        </div>
+                        <div class="p-6 shrink-0 border-t bg-gray-100">
                             <!-- Footer -->
-                            <div class="border-t pt-6 flex justify-end items-center">
+                            <div class="flex justify-end items-center">
 
                                 <template x-if="selectedProject.link">
 
                                     <a
                                         :href="selectedProject.link"
                                         target="_blank"
-                                        class="bg-gray-900 hover:bg-black text-white px-5 py-3 rounded-xl transition flex items-center gap-2"
+                                        class="bg-gray-900 hover:bg-black text-white px-4 py-2 rounded-xl transition flex items-center gap-2"
                                     >
-                                        <i class="fa-brands fa-github"></i>
+                                    <i class="fa-brands fa-github"></i>
                                         Bekijk op GitHub
                                     </a>
 
@@ -651,12 +633,12 @@
 
                             </div>
 
+                        
                         </div>
 
                     </div>
 
                 </div>
-
             </div>
             
             

@@ -16,10 +16,11 @@ function experience(){
 function projects(){
     return{
         projecten:[
-            {id:1, project_name:"Vue 3 Dashboard",link:null, img:"img/projects/Dashboard.png", description:"Dit was project die ik had gemaaktop stage. Een dashboard voor het controleren en aanpassen van onderzoeksgegevens en interviews op schiphol", challenges: [], used_languages:['Javascript', 'PHP', 'SQL'], used_frameworks:['Vue3']},
-            {id:2, project_name:"KanBanboard",link:'https://github.com/RobbeGT3/KanBanBoard', img:"img/projects/kanbanboard.png", description:"KanBanBoard applicatie die ik zelf heb gemaakt", challenges: [], used_languages:['Javascript','HTML'], used_frameworks:[]},
-            {id:3, project_name:"Fullstack",link:'https://github.com/RobbeGT3/FullStack', img:"img/projects/fullstack.png", description:"Standaard informatie beheer applicatie. Hierin kunnen gebruikers worden aangepast, aangemaakt en verwijderd worden.", challenges: [], used_languages:['Javascript', 'PHP','HTML', 'SQL'], used_frameworks:[]},
-            {id:4, project_name:"Voedselbank Examenproject",link:'https://github.com/RobbeGT3/Examenopdracht', img:"img/projects/voedselbank examenproject.png", description:"Een Multipurpose dashboard voor mijn eindexamen. Hierin kan voorraad, klantenen useraccounts beheerd worden, en kunnen voedselpakketten aangemaakt worden voor uitgave aan actieve klanten.", challenges: [], used_languages:['Javascript', 'PHP','HTML', 'SQL'], used_frameworks:[]}
+            {id:1, project_name:"Vue3 Dashboard",link:null, img:"img/projects/Dashboard.png", used_languages:['Javascript','PHP', 'SQL'], used_frameworks:['Vue3', 'Tailwindcss'], description:"Dit was project die ik had gemaaktop stage. Een dashboard voor het controleren en aanpassen van onderzoeksgegevens en interviews op schiphol."},
+            {id:2, project_name:"KanBanboard",link:'https://github.com/RobbeGT3/KanBanBoard', img:"img/projects/kanbanboard.png",  used_languages:['Javascript','HTML','CSS'], used_frameworks:[], description:"KanBan planning bord die ik zelf heb gemaakt met standaard HTML, CSS en JavaScript. Hierin kan je taken aanmaken, editen en deleten. Ook kan je de status van een taak veranderen doormiddel van een drag & drop functie."},
+            {id:3, project_name:"Fullstack Project",link:'https://github.com/RobbeGT3/FullStack', img:"img/projects/fullstack.png", used_languages:['Javascript','CSS', 'PHP','HTML', 'SQL'], used_frameworks:[] , description:"Standaard informatie beheer applicatie. Hierin kunnen gebruikers worden aangepast, aangemaakt en verwijderd worden."},
+            {id:4, project_name:"Voedselbank Examenproject",link:'https://github.com/RobbeGT3/Examenopdracht', img:"img/projects/voedselbank examenproject.png",  used_languages:['Javascript', 'PHP','HTML', 'SQL', 'CSS'], used_frameworks:[], description:"Een Multipurpose dashboard voor mijn eindexamen. Hierin kan voorraad, klantenen useraccounts beheerd worden, en kunnen voedselpakketten aangemaakt worden voor uitgave aan actieve klanten.",},
+            {id:5, project_name:"ATC Website",link:null, img:"img/projects/ATCWebsiteDashboard.png", used_languages:['Javascript', 'PHP','HTML', 'CSS'], used_frameworks:['WordPress'], description:"Voor de Almeerse Tafeltennis club met WordPress een verenigings website opgezet voor nieuwe potentiële leden. Hierop konden mensen training schema's, bestuurs informatie, inschrijf informatie en toernooi informatie vinden. Ook kunnen mensen nieuws berichten lezen van de club zelf."}
         ]
     }
 
@@ -33,6 +34,7 @@ function skills(){
                 {name:'Laravel',img:'img/logos/Laravel.jpeg', lvl:'Beginner', start:'2025', type:'Framework'},
                 {name:'Tailwindcss',img:'img/logos/tailwind-css.png', lvl:'beginner', start:'2025', type:'Library'},
                 {name:'AlpineJS',img:'img/logos/Alpine-Js.jpg', lvl:'Beginner', start:'2025', type:'Framework'},
+                {name:'WordPress',img:'img/logos/wordpress-logo.jpg', lvl:'Intermediate', start:'2022', type:'CMS'},
             ],
             lan:[
                 {name:'Javascript',img:'img/logos/JS.png', lvl:'Intermediate', start:'2024', type:'Programming Language'},
@@ -48,7 +50,8 @@ function skills(){
             'Teamwork',
             'Hardwork',
             'Klant vriendelijk',
-            'Behulpzaam'
+            'Behulpzaam',
+            'Zelfstandig',
         ],
         tools:[
             'MySQL Workbench',
